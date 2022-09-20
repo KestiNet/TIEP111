@@ -16,7 +16,7 @@ public class YhdistaMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader ldr = new FXMLLoader(getClass().getResource("YhdistaGUIView.fxml"));
+            FXMLLoader ldr = new FXMLLoader(getClass().getResource("YhdistaView.fxml"));
             final Pane root = ldr.load();
             //final YhdistaGUIController yhdistaCtrl = (YhdistaGUIController) ldr.getController();
             Scene scene = new Scene(root);
