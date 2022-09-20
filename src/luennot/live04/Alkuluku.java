@@ -21,8 +21,17 @@ public class Alkuluku {
      * </pre>
      */
     public static int millaJaollinen(int luku) {
+        int jakaja = 2;
+        int kasvatus = 1;
+        if (luku == 2) return 1;
+        do {
+        int jakojaannos = luku % jakaja;
+        if (jakojaannos == 0) return jakaja;
+        jakaja += kasvatus;
+        kasvatus = 2;
+        } while(jakaja < luku/2);
         
-        return luku;
+        return 1;
     }
 
     /**
