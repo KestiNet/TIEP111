@@ -93,18 +93,24 @@ public class Etusuku {
    // BYCODEBEGIN
    /**
     * Vaihtaa annetun merkkijonon alku- ja loppuosat keskenään.
-    * @param
-    * ....
-    * @return
-    * @example
+ * @param tutkittava tutkittava merkkijono
+ * @param valitsija 
+ * @param erottaja mistä kohtaa erotetaan merkkijonot
+ * @return palauttaa sukunimi etunimi muodossa
+  * @example
     * <pre name="test">
-    *   vaihdaAlkuLoppu(PARAMETRIT) === "";
+    *   vaihdaAlkuLoppu("Aku Ankka") === "Ankka Aku"
+    *   vaihdaAlkuLoppu("Jukka Pekka Palo") === "Palo Jukka Pekka"
+   
     * </pre>
     */
-   public static String vaihdaAlkuLoppu(PARAMETRIT) {
-        return "";
+   public static String vaihdaAlkuLoppu(String tutkittava, boolean valitsija ) {
+           StringBuilder suku = new StringBuilder(tutkittava); 
+           String etu = Mjonot.erota(suku, ' ', valitsija);
+           if(suku.length()==0) return etu;
+        return suku+ " " + etu;
+ 
    }
-
 
    /**
     * Vaihtaa etunimen ja sukunimen keskenään,
@@ -121,10 +127,7 @@ public class Etusuku {
     * </pre>
     */
    public static String vaihdaEtuSuku(String nimi) {
-       StringBuilder sukunimi = new StringBuilder(nimi);
-        String etunimet = Mjonot.erota(sukunimi, ' ', true);
-        if ( sukunimi.length() == 0 ) return etunimet;
-        return sukunimi + " " + etunimet;
+       return vaihdaAlkuLoppu(nimi, true);
    }
 
 
@@ -142,10 +145,7 @@ public class Etusuku {
     * </pre>
     */
    public static String vaihdaSukuEtu(String nimi) {
-       StringBuilder etunimet = new StringBuilder(nimi);
-        String sukunimi = Mjonot.erota(etunimet);
-        if ( etunimet.length() == 0 ) return sukunimi;
-        return etunimet + " " + sukunimi;
+       return vaihdaAlkuLoppu(nimi, false);
    }
    // BYCODEEND
 

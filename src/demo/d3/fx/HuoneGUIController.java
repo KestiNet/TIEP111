@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 /**
- * @author lange
+ * @author Esa Kesti
  * @version 2.10.2022
  *
  */
