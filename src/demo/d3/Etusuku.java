@@ -94,8 +94,7 @@ public class Etusuku {
    /**
     * Vaihtaa annetun merkkijonon alku- ja loppuosat keskenään.
  * @param tutkittava tutkittava merkkijono
- * @param valitsija 
- * @param erottaja mistä kohtaa erotetaan merkkijonot
+ * @param valitsija valitsee joko etu tai sukunimen
  * @return palauttaa sukunimi etunimi muodossa
   * @example
     * <pre name="test">
@@ -107,7 +106,7 @@ public class Etusuku {
    public static String vaihdaAlkuLoppu(String tutkittava, boolean valitsija ) {
            StringBuilder suku = new StringBuilder(tutkittava); 
            String etu = Mjonot.erota(suku, ' ', valitsija);
-           if(suku.length()==0) return etu;
+           while(suku.length()==0) return etu;
         return suku+ " " + etu;
  
    }
