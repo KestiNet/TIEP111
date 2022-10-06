@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
  */
 public class IkaGUIController {
 
-    @FXML private TextField texIka;
+    @FXML private TextField texSyntyma;
 
     @FXML private TextField texVanha;
     
@@ -25,17 +25,18 @@ public class IkaGUIController {
     }
     
     /**
-     * @param text
-     * @param luku
+     * @param text mihin tekstikenttaan luku sijoitetaan
+     * @param luku mika vastaa ikaa
      */
     public static void asetaTulos(TextField text, int luku) {
-        String summa = String.format("%5.2f",luku);
-        summa = summa.replace(',', '.');
+        String summa = String.format("%2d",luku);
+        //summa = summa.replace(',', '.');
         text.setText(summa);
     } 
     
     private void laske() {
-        int ika = 2022- haeLuvut(texIka,0);
+        int syntymaVuosi = haeLuvut(texSyntyma, 0);
+        int ika = 2022 - syntymaVuosi;
         
         
       

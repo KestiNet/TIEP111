@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="demo.d4.fx.IkaGUIController">
+<BorderPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demo.d4.fx.IkaGUIController">
    <center>
       <GridPane prefHeight="90.0" prefWidth="400.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -24,7 +23,7 @@
          <children>
             <Label text="Täytät tänä vuonna:" GridPane.rowIndex="2" />
             <Label layoutX="10.0" layoutY="77.0" text="Syntymavuotesi:" GridPane.rowIndex="1" />
-            <TextField fx:id="texIka" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="texSyntyma" onKeyReleased="#keyReleased" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="texVanha" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
          <opaqueInsets>
