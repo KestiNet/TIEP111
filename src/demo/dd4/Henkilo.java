@@ -24,6 +24,11 @@ public class Henkilo {
     
     /**
      * @return palauttaa syntymavuoden
+     * @example
+     * <pre name="test">
+     * Henkilo roope = new Henkilo("Roope", "Ankka", 1902); 
+     * getSyntymavuosi == 1902;
+     * </pre>
      */
     public  int getSyntymavuosi() {
         return syntymaVuosi;
