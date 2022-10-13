@@ -9,7 +9,7 @@ import fi.jyu.mit.ohj2.*;
  * @version 12.10.2022
  *
  */
-public class Henkilo {
+public class Henkio {
     private String etunimi;
     private String sukunimi;
     private int syntymavuosi;
@@ -21,12 +21,13 @@ public class Henkilo {
      * @param sukunimi henkilön uusi sukunimi
      * @param syntymavuosi henkilön uusi syntymävuosi
      */
-    public Henkilo(String etunimi, String sukunimi, int syntymavuosi) {
+    public Henkio(String etunimi, String sukunimi, int syntymavuosi) {
         this.etunimi = etunimi;
         this.sukunimi = sukunimi;
         this.syntymavuosi = syntymavuosi;
     }
-
+    
+   
 
     /**
      * @return tiedot | erotetussa muodossa
@@ -91,7 +92,35 @@ public class Henkilo {
     }
 
     // BYCODEBEGIN
-    Kirjoita loput luokasta tähän
+    /**
+     * tyhja muodostaja
+     */
+    public Henkio() {
+        etunimi = "";
+        sukunimi = "";
+        syntymavuosi = 0;
+    }
+    /**
+     * @param parsittavaJono jono mista parsitaan
+     */
+    public Henkio(String parsittavaJono) {
+        parse(parsittavaJono);
+    }
+    /**
+     * @param parsittava merkkijono
+     * @example
+     * <pre name="test">
+     *   Henkilo roope = new Henkilo("Roope","Ankka",1904);
+     *   roope.parse ("Roope|ankka|1904") === "Roope Ankka 1904";
+     */
+    public void parse(String parsittava) {
+        StringBuilder parsittavaJono = new StringBuilder(parsittava);
+        etunimi = Mjonot.erota(parsittavaJono, '|', "|");
+        sukunimi = Mjonot.erota(parsittavaJono, '|', "|");
+        syntymavuosi = Mjonot.erotaInt(parsittavaJono, syntymavuosi);
+        
+    }
+    
     // BYCODEEND
 
     /**
@@ -99,13 +128,13 @@ public class Henkilo {
      * @param args ei käytössä
      */
     public static void main(String[] args) {
-        Henkilo hlo = new Henkilo();
-        Henkilo aku = new Henkilo("Aku", "Ankka", 1934);
+        Henkio hlo = new Henkio();
+        Henkio aku = new Henkio("Aku", "Ankka", 1934);
         System.out.println(hlo);
         hlo.parse("Sepe|Susi|1933");
         hlo.tulosta(System.out);
         aku.tulosta(System.out);
-        Henkilo mikki = new Henkilo("Mikki|Hiiri");
+        Henkio mikki = new Henkio("Mikki|Hiiri");
         System.out.println(mikki);
     }
 }
