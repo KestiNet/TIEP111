@@ -89,6 +89,8 @@ public class Pvm {
     public String toString() {
         return pv + "." + kk + "." + vv;
     }
+    
+    
 
 
     /**
@@ -110,23 +112,36 @@ public class Pvm {
         int v = Mjonot.erota(sb, '.', 0);
         alusta(p, k, v);
     }
-
+    /**
+     * alustaa päivän, kuukauden ja vuoden
+     */
+    public void Pv() {
+        pv = 0;
+        kk = 0;
+        vv = 0;
+    }
+    /**
+     * @param sb stringbuilder
+     */
+    public Pvm(String sb) {
+        parse(sb);
+    }
+    /**
+     * @return palauttaa päivän
+     */
+    public int getPv() {
+        return pv;
+    }
 
     /**
      * Testataan päivämääräluokkaa
      * @param args ei käytössä
      */
     public static void main(String[] args) {
-        Pvm tammi2008 = new Pvm(1, 1);
-        Pvm maalis97 = new Pvm(1, 3, 97);
-        Pvm tanaan = new Pvm();
-
-        System.out.println(tammi2008 + " " + maalis97 + " " + tanaan);
-
+  
+        
         Pvm pvm = new Pvm();
-
-        pvm.parse("12.1.1995");     System.out.println(pvm);
-        pvm.parse("15.3");          System.out.println(pvm);
-        pvm.parse("14");            System.out.println(pvm);
+        pvm.parse("3.4.2011");
+        System.out.println(pvm.getPv()); // tulostaa 3
     }
 }
