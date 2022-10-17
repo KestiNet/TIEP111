@@ -45,10 +45,11 @@ public class LinjaAuto {
      */
     public int getTilaa() {
         return vapaitaPaikkoja;
-        
        }
     
-    
+    public boolean Tilaa() {
+        return vapaitaPaikkoja >0;
+    }
     
     /**
      * Tulostus metodi
@@ -106,8 +107,8 @@ public class LinjaAuto {
         isobussi.tulosta(System.out);                           // 45,39,6
         if ( pikkubussi.getTilaa() > 0 )
             System.out.println("Pieneen bussiin mahtuu!");   // ei tulosta
-      //  if ( isobussi.getTilaa() )
-        //    System.out.println("Isoon bussiin mahtuu!");     // tulostaa
+        if ( isobussi.getTilaa() )
+            System.out.println("Isoon bussiin mahtuu!");     // tulostaa
         int vajaa = pikkubussi.vahenna(12);                  // vajaa = -2
         if ( vajaa < 0 )
             System.out.println("Pikkubussissa ei edes ole näin montaa!");
