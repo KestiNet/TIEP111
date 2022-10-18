@@ -107,7 +107,7 @@ public class LinjaAuto {
         isobussi.tulosta(System.out);                           // 45,39,6
         if ( pikkubussi.getTilaa() > 0 )
             System.out.println("Pieneen bussiin mahtuu!");   // ei tulosta
-        if ( isobussi.getTilaa() )
+        if ( isobussi.Tilaa() )
             System.out.println("Isoon bussiin mahtuu!");     // tulostaa
         int vajaa = pikkubussi.vahenna(12);                  // vajaa = -2
         if ( vajaa < 0 )
